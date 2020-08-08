@@ -1,4 +1,9 @@
-
+/**
+ * Ontefetse Ditsele
+ * Profile Class : assert Bio & Images to Person.
+ * 
+ * 06 August 2020
+ */
 
 public class Profile extends Person {
     
@@ -11,24 +16,15 @@ public class Profile extends Person {
         super(name,age,gender,location);
         this.bio = bio;
         this.pictures = new Image[3];
+    }
+    public void setBIO(final String bio) { this.bio = bio; }
+    public void setImages(final Image[] pics){ this.pictures = pics;  }
 
-    }
-    public void setImages(final Image[] pics){
-        this.pictures = pics;
-
-    }
-    public Image[] getImages() {
-        return this.pictures;
-    }
-    public void setBIO(final String bio) {
-            this.bio = bio;
-    }
-    public String getBIO(){
-        return this.bio;
-    }
-
+    public String getBIO(){ return this.bio; }
+    public Image[] getImages() { return this.pictures;   }
+    
     @Override
     public String toString(){
-        return super.getName() +"  "+ this.bio;
+        return super.toString() +"\n"+ this.bio +"\n"+this.pictures[0];
     }
 }

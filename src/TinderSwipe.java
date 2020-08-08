@@ -1,41 +1,47 @@
+
 /**
  * Ontefetse Ditsele
  * 
+ * TinderSwipe Class : A Controller Class that will be user by TinderApp and interact with Database with Profiles
  * 06 August 2020
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TinderSwipe {
-    Profile[] rightSwipes;
+    List<Profile> rightSwipes;
     Profile[] preference;
-
-    Database userData;
+    
     Profile current;
-    private int tracker = -1;
-    private int right = 0;
+    Database userData;
 
-	public TinderSwipe(String preference) {
-        //this.preference = preference;
-        rightSwipes = new Profile[5];
+    private int cTracker = -1;  //Keep track of the current Profile in Prefence list.
 
+	public TinderSwipe(final String preference) {
+        rightSwipes = new ArrayList<Profile>();
+        
         userData = new Database();
         userData.readCSV();
         userData.setPreference(preference);
     
         this.preference = userData.getPreference();
     }
-
-
+    
 	public Profile getNext() {
-        tracker ++;
-        current = preference[tracker];
+        cTracker ++;
+        if (cTracker < this.preference.length){
+            current = preference[cTracker];
+        }else{
+            current = null;}
         return current;
 	}
 	public void right() {
-        rightSwipes[right] = current;
+        rightSwipes.add(current);
         userData.writeCSV(current);
     }
 
     public Profile[] getRightSwipes(){
-        return rightSwipes;
+        return this.rightSwipes.toArray(new Profile[0]);
     }
 }

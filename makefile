@@ -1,5 +1,5 @@
 # Makefile 
-# Akhil Boddu
+# Ontefetse Ditsele
 
 # A simple Makefile
 # HelloWorld.class: HelloWorld.java
@@ -10,7 +10,7 @@ BINDIR = bin
 DOCDIR = doc
 TESTDIR = test
 
-JUNIT = ./gson/gson-2.8.6.jar -sourcepath ./src ./src/$*.java
+JUNIT = ./src ./src/$*.java
 
 
 JAVAC = javac
@@ -52,12 +52,7 @@ TinderSwipe.class: TinderSwipe.java
 TinderApp.class: TinderApp.java
 	javac -d $(BINDIR) -cp $(JUNIT)
 
-#test_classes: SearchItLinearTest.java eDirectoryTest.java #SearchItTest.java PrintItTest.java
-	      
-#junit: test_classes
-#	javac -d $(BINDIR) -cp ../junit/junit-4.12.jar -sourcepath ./src $*.java
-#	#java -cp $(BINDIR):$(JUNIT) org.junit.runner.JUnitCore $*.java	
-
 clean:
 	rm -f  $(BINDIR)/*.class
 	rm -Rf doc
+	rm -f $(BINDIR)/swipes.csv

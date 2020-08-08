@@ -1,7 +1,8 @@
 /**
- * Ontefetse Ditsele & 
+ * Ontefetse Ditsele
  * 
- * 
+ * Person Class : A super class to create all profiles.
+ * 06 August 2020
  */
 
 public class Person {
@@ -28,7 +29,6 @@ public class Person {
 
     @Override
     public String toString(){ 
-        return this.name +" age: "+ this.age +"Gender: "+this.gender;
+        return this.name +" Age: "+ this.age +"   "+this.gender;
     }
-
 }
